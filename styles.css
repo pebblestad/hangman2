@@ -1,0 +1,48 @@
+ul a {
+	text-decoration: none;
+	color: white;
+	font-size: 1.5em;
+	font-family: arial;
+}
+
+ul {
+	list-style: none;
+	background-color: black;
+	overflow: auto;
+	padding: 20px;
+	margin: 0px;
+	width: 100%;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+}
+
+li {
+	float: left;
+	display: block;
+}
+
+#hangmanInput {
+    position: absolute;
+    top: 600px;
+    left: 720px;
+    width: 140px;
+    height: 30px;
+    font-size: 20px;
+}
+
+#hangmanTitle {
+    position: absolute;
+    top: 100px;
+    left: 660px;
+    font-size: 50px;
+    color: black;
+}
+
+#shuffle {
+    position: absolute;
+    top: 650px;
+    left: 720px;
+    width: 140px;
+    height: 30px;
+}

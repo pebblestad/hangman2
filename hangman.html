@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Stad | Hangman</title>
+		<script src="stad.js"></script>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	
+	<body>
+		<ul>
+			<li><a href="index.html">Home</a>&nbsp; &nbsp; &nbsp; &nbsp;</li>
+			<li><a href="hangman.html">Hangman</a>&nbsp; &nbsp; &nbsp; &nbsp;</li>
+			<li><a href="about.html">About</a>&nbsp; &nbsp; &nbsp; &nbsp;</li>
+		</ul>
+        
+        <h1 id="hangmanTitle">HANGMAN</h1>
+        <canvas id="hangman" width="1500" height="700"></canvas>
+        <form>
+            <input type="text" name="letter" id="hangmanInput" placeholder="input a letter" maxlength="1"/>
+        </form>
+        
+        <button id="shuffle" onclick="shuffle()">New Game!</button>
+	   
+        <script>
+            //create canvas
+            var canvas = document.getElementById("hangman");
+            var ctx = canvas.getContext("2d");
+            var word;
+        
+            //create black box/fill canvas
+            ctx.fillStyle = "FFF";
+            ctx.rect(innerWidth/3, 200, 600, 500);
+            ctx.fill();
+            
+            function shuffle() {
+                var randomInt = Math.floor((Math.random() * 10) + 1);
+                
+                //simplify later
+                switch (randomInt) {
+                    case 1:
+                        word = "hateful";
+                        break;
+                    case 2:
+                        word = "suprised";
+                        break;
+                    case 3:
+                        word = "vacant";
+                        break;
+                    case 4:
+                        word = "pirate";
+                        break;
+                    case 5:
+                        word = "glass";
+                        break;
+                    case 6:
+                        word = "irony";
+                        break;
+                    case 7:
+                        word = "laughable";
+                        break;
+                    case 8:
+                        word = "worst";
+                        break;
+                    case 9:
+                        word = "hangover";
+                        break;
+                    case 10:
+                        word = "eskeetit";
+                        break;
+                }
+                
+                var xValue = 500;
+                var yValue = 350;
+                var trigger = 1;
+                
+                //draw lines
+                if (trigger == 0) {
+                    for (var i = 0; i <= word.length; i++) {
+                        if (xValue <= 1000) {
+                            ctx.fillStyle = "black";
+                            ctx.fillRect(xValue, yValue, 50, 10);
+                            xValue -= 100;
+                        } else {
+                            xValue = 500;
+                            yValue -= 100;
+                        }
+                    }
+                    trigger = 1;
+                } else {
+                    for (var i = 0; i <= word.length; i++) {
+                        if (xValue <= 1000) {
+                            ctx.fillStyle = "white";
+                            ctx.fillRect(xValue, yValue, 50, 10);
+                            xValue += 100;
+                        } else {
+                            xValue = 500;
+                            yValue += 100;
+                        }
+                    }
+                    trigger = 0;
+                }
+                    
+                
+            }
+            
+        </script>
+	</body>
+</html>
